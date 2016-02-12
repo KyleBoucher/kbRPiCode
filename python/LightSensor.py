@@ -6,7 +6,7 @@ import time
 def GetMongoConnection():
     con = None;
     try:
-        con = MongoClient('mongodb://192.168.20.2:27017');
+        con = MongoClient('mongodb://RPi:dragonpi@192.168.20.2:27017');
     except (AttributeError, pymongo.errors.OperationFailure):
         print "Could not connect to server: %s" % AttributeError
     return con
