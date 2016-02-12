@@ -3,7 +3,18 @@ import datetime
 import RPi.GPIO as GPIO
 import time
 
-client = MongoClient('mongodb://localhost/weather');
+def GetMongoConnection():
+    con = None;
+    try:
+        con = MongoClient('mongodb://192.168.20.2/weather');
+    except pymongo.errors.ConnectionFailure, e:
+        print "Could not connect to server: %s" % e;
+    return con
+
+mongoClient = GetMongoConnection();
+if mongoClient is None:
+    return;
+
 db = client.weather;
 weatherData = db.weatherdatas;
 
