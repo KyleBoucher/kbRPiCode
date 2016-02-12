@@ -35,7 +35,7 @@ def AnalogInput(pin):
         counter = counter + 1.0;
         if counter > MAX_COUNT:
             break;
-    return 1.0 - ((float)(counter)/(float)(MAX_COUNT);
+    return 1.0 - ((float)(counter)/(float)(MAX_COUNT));
 
 while True:
     curLightLevel = AnalogInput(PIN);
