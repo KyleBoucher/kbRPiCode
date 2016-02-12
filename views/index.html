@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Weather</title>
+    
+    <!--  Libraries  -->
+<!--  Angular  -->
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+<!--  Bootstrap  -->
+    <script src="/node_modules/bootstrap/dist/css/bootstrap.min.css"></script>
+    <script src="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css"></script>
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+<!--  Angular Charts  -->
+    <link rel="stylesheet" href="/node_modules/nvd3/build/nv.d3.min.css">
+    <script src="/node_modules/d3/d3.min.js"></script>
+    <script src="/node_modules/nvd3/build/nv.d3.min.js"></script>
+    <script src="/node_modules/angular-nvd3/dist/angular-nvd3.min.js"></script>
+    
+    <!--  App  -->
+    <script src="/js/app/angularApp.js"></script>
+    
+    <!--  Controllers  -->
+    <script src="/js/app/mainController.js"></script>
+    <script src="/js/app/homeController.js"></script>
+
+
+</head>
+<body ng-controller="mainController">
+
+<div ng-view></div>
+
+</body>
+</html>
