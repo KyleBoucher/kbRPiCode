@@ -13,9 +13,11 @@ def GetMongoConnection():
 
 mongoClient = GetMongoConnection();
 if mongoClient is None:
-    return;
+    quit()
+else:
+    print "Successfully connected to MongoDb";
 
-db = client.weather;
+db = mongoClient.weather;
 weatherData = db.weatherdatas;
 
 PIN = 18;
@@ -36,9 +38,12 @@ def AnalogInput(pin):
     return 1.0 - ((float)counter/(float)MAX_COUNT);
 
 while True:
+    curLightLevel = AnalogInput(PIN);
+    print "Light Level: %s" % curLightLevel;
+    
     post = {
         'timeStamp': datetime.datetime.utcnow().isoformat() + "Z",
-        'lightLevel': AnalogInput(PIN),
+        'lightLevel': curLightLevel,
         'temperature': 0,
         'pressure': 0,
         'humidity': 0,
