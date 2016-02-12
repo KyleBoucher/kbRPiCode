@@ -6,7 +6,7 @@ import time
 def GetMongoConnection():
     con = None;
     try:
-        con = MongoClient('mongodb://192.168.20.2/weather');
+        con = MongoClient('mongodb://192.168.20.2');
     except pymongo.errors.ConnectionFailure, e:
         print "Could not connect to server: %s" % e;
     return con
