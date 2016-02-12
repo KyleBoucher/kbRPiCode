@@ -12,6 +12,7 @@ mainModule.controller('homeController', function($scope, $http) {
                     bottom:60,
                     left:40
                 },
+                interpolate: 'monotone',
                 x: function(d){return d.x;},
                 y: function(d) {return d.y;},
                 useInteractiveGuideline: true,
@@ -23,7 +24,8 @@ mainModule.controller('homeController', function($scope, $http) {
                 },
                 xAxis: {
                     axisLabel: "Time",
-                    axisLabelDistance: -10
+                    axisLabelDistance: -10,
+                    rotate: 45,
                 },
                 xTickFormat: function(d) {
 //                    var date = new Date(d);
@@ -31,10 +33,10 @@ mainModule.controller('homeController', function($scope, $http) {
 //                    var mm = date.getMinutes();
 //                    
 //                    return (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm);
-                    return d3.time.format('%H')(new Date(d));
+                    return d3.time.format('%H:%M')(new Date(d));
                 },
-                xScale: d3.time.scale.utc(),
-//                forceX: [0,23],
+                xScale: d3.time.scale(),
+                //forceX: [moment().startOf('day'), moment().endOf('day')],
                 forceY: [0, 1],
                 yAxis: {
                     axisLabel: "",
@@ -51,6 +53,9 @@ mainModule.controller('homeController', function($scope, $http) {
         Data: []
     };
     
+    //TODO: Fake data adding (random value 0-1) with faked timestamp 1min apart.
+    //          - Get graph working then set python code to run on PI to test
+    
     $http.get('/weather')
         .success(function(data) {
             $scope.LightSensor.Data = [{
@@ -64,28 +69,7 @@ mainModule.controller('homeController', function($scope, $http) {
                     y: data[i].lightLevel
                 });
             }
-        
-            console.log($scope.Data);
-            console.log(data);
 
         });
-    
-    $scope.CreatePost = function() {
-        $http.post('/weather', {
-                timeStamp: new Date(),
-                lightLevel: 0.5,
-                temperature: 0,
-                pressure: 1,
-                humidity: 2,
-                windSpeed: 50,
-                windDirection: "NE"
-            })
-            .success(function(data) {
-                console.log("post success");
-            })
-            .error(function(data) {
-                console.log("post error", data);
-            });
-    }
 
 });

@@ -12,6 +12,7 @@
     "express": "~4.13.4",
     "font-awesome": "~4.5.0",
     "method-override": "~1.0.0",
+    "moment": "^2.11.2",
     "mongodb": "^2.1.6",
     "morgan": "~1.0.0",
     "nvd3": "^1.8.2"
