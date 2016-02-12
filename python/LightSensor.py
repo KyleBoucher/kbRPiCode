@@ -6,16 +6,16 @@ import time
 def GetMongoConnection():
     con = None;
     try:
-        con = MongoClient('mongodb://192.168.20.2');
-    except pymongo.errors.ConnectionFailure, e:
-        print "Could not connect to server: %s" % e;
+        con = MongoClient('mongodb://192.168.20.2:27017');
+    except (AttributeError, pymongo.errors.OperationFailure):
+        print "Could not connect to server: %s" % AttributeError
     return con
 
 mongoClient = GetMongoConnection();
 if mongoClient is None:
     quit()
 else:
-    print "Successfully connected to MongoDb";
+    print "Successfully got MongoDb client";
 
 db = mongoClient.weather;
 weatherData = db.weatherdatas;
@@ -38,11 +38,14 @@ def AnalogInput(pin):
     return 1.0 - ((float)(counter)/(float)(MAX_COUNT));
 
 while True:
+    timestamp = datetime.datetime.utcnow().isoformat() + "Z";
     curLightLevel = AnalogInput(PIN);
+    
+    print "Timestamp: %s" % timestamp;
     print "Light Level: %s" % curLightLevel;
     
     post = {
-        'timeStamp': datetime.datetime.utcnow().isoformat() + "Z",
+        'timeStamp': timestamp,
         'lightLevel': curLightLevel,
         'temperature': 0,
         'pressure': 0,
