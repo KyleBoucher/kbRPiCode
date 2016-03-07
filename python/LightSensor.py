@@ -77,5 +77,5 @@ while True:
     
     weatherData.insert_one(post);
 
-    time.sleep(1.0);
+    time.sleep(10.0);
 

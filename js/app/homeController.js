@@ -110,7 +110,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
 //    
     $interval(function() {
         $scope.GetData();
-    }, 5000);
+    }, 10000);
     
     $scope.GetData = function() {
         $http.get('/weather')
@@ -130,10 +130,10 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             
             var lastInd = data.length-1;
             $scope.LatestData.Timestamp = new Date(data[lastInd].timeStamp);
-            $scope.LatestData.LightLevel = data[lastInd].lightLevel;
-            $scope.LatestData.Temperature = data[lastInd].temperature;
-            $scope.LatestData.Pressure = data[lastInd].pressure;
-            $scope.LatestData.Humidity = data[lastInd].humidity;
+            $scope.LatestData.LightLevel = data[lastInd].lightLevel.toFixed(3);
+            $scope.LatestData.Temperature = data[lastInd].temperature.toFixed(3);
+            $scope.LatestData.Pressure = data[lastInd].pressure.toFixed(3);
+            $scope.LatestData.Humidity = data[lastInd].humidity.toFixed(3);
             
 
         })

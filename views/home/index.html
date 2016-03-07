@@ -1,10 +1,19 @@
 
 <div class="container">
-    <div>Time:          <span ng-bind="LatestData.Timestamp"></span></div>
-    <div>Light:         <span ng-bind="LatestData.LightLevel"></span></div>
-    <div>Temperature:   <span ng-bind="LatestData.Temperature"></span>&deg;C</div>
-    <div>Pressure:      <span ng-bind="LatestData.Pressure"></span> hPa</div>
-    <div>Humidity:      <span ng-bind="LatestData.Humidity">%</span></div>
+    <div class="col-md-2 col-md-offset-1" style="text-align:right;border-right:1px dashed grey;">
+        <div>Time</div>
+        <div>Light</div>
+        <div>Temperature</div>
+        <div>Pressure</div>
+        <div>Humidity</div>
+    </div>
+    <div class="col-md-2">
+        <div ng-bind="LatestData.Timestamp | date:'yyyy-mm-dd hh:MM:ss'"></div>
+        <div>{{LatestData.LightLevel * 100.0}}%</div>
+        <div>{{LatestData.Temperature}} &deg;C</div>
+        <div>{{LatestData.Pressure}} hPa</div>
+        <div>{{LatestData.Humidity}}%</div>
+    </div>
 </div>
 
 <div class="container" style="width:100%;">
