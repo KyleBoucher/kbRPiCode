@@ -51,7 +51,7 @@ while True:
         'pressure': 0,
         'humidity': 0,
         'windSpeed': 0,
-        'windDirection': 'N'
+        'windDirection': 0
     };
     
     weatherData.insert_one(post);
