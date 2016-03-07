@@ -140,7 +140,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
         .error(function(data) {
             console.log("Error Posting data", data);
         });
-    }
+    };
     $scope.GetData();
 
 });

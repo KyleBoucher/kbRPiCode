@@ -1,6 +1,5 @@
-
 <div class="container">
-    <div class="col-md-2 col-md-offset-1" style="text-align:right;border-right:1px dashed grey;">
+    <div class="col-md-2">
         <div>Time</div>
         <div>Light</div>
         <div>Temperature</div>
@@ -8,7 +7,7 @@
         <div>Humidity</div>
     </div>
     <div class="col-md-2">
-        <div ng-bind="LatestData.Timestamp | date:'yyyy-mm-dd hh:MM:ss'"></div>
+        <div ng-bind="LatestData.Timestamp | date:'yyyy-MM-dd HH:mm:ss'"></div>
         <div>{{LatestData.LightLevel * 100.0}}%</div>
         <div>{{LatestData.Temperature}} &deg;C</div>
         <div>{{LatestData.Pressure}} hPa</div>

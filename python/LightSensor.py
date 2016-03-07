@@ -59,6 +59,7 @@ while True:
     humidity_perc = bmeSensor.read_humidity();
     
     ## Output
+    print '-----------------------------'
     print 'Timestamp    = {0}'.format(timestamp)
     print "Light Level  = {0:0.3f}".format(curLightLevel);
     print 'Temp         = {0:0.3f} deg C'.format(deg_C)
