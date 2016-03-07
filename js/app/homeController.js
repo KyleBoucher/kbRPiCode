@@ -1,6 +1,14 @@
 
 mainModule.controller('homeController', function($scope, $http, $interval) {
     
+    $scope.LatestData = {
+        Timestamp: 0,
+        LightLevel: 0,
+        Temperature: 0,
+        Pressure: 0,
+        Humidity: 0
+    };
+    
     $scope.LightSensor = {
         Options: {
             chart: {
@@ -78,31 +86,31 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
     
     //TODO: Fake data adding (random value 0-1) with faked timestamp 1min apart.
     //          - Get graph working then set python code to run on PI to test
-    $interval(function() {
-        var date = new Date();
-        $scope.RandLightLevel = Math.pow(Math.sin(Math.PI*0.2 + 1e-4*date.getTime()), 2);
-        post = {
-            'timeStamp': date.toISOString(),
-            'lightLevel': $scope.RandLightLevel,
-            'temperature': 0,
-            'pressure': 0,
-            'humidity': 0,
-            'windSpeed': 0,
-            'windDirection': 'N'
-        };
-        // send post
-        $http.post('/weather', post)
-            .success(function(data) {
-            
-            })
-            .error(function(data) {
-                console.log("Error Posting data", data);
-            })
-    }, 60000);
-    
+//    $interval(function() {
+//        var date = new Date();
+//        $scope.RandLightLevel = Math.pow(Math.sin(Math.PI*0.2 + 1e-4*date.getTime()), 2);
+//        post = {
+//            'timeStamp': date.toISOString(),
+//            'lightLevel': $scope.RandLightLevel,
+//            'temperature': 0,
+//            'pressure': 0,
+//            'humidity': 0,
+//            'windSpeed': 0,
+//            'windDirection': 'N'
+//        };
+//        // send post
+//        $http.post('/weather', post)
+//            .success(function(data) {
+//            
+//            })
+//            .error(function(data) {
+//                console.log("Error Posting data", data);
+//            })
+//    }, 60000);
+//    
     $interval(function() {
         $scope.GetData();
-    }, 60000);
+    }, 5000);
     
     $scope.GetData = function() {
         $http.get('/weather')
@@ -119,6 +127,14 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
                     y: data[i].lightLevel
                 });
             }
+            
+            var lastInd = data.length-1;
+            $scope.LatestData.Timestamp = new Date(data[lastInd].timeStamp);
+            $scope.LatestData.LightLevel = data[lastInd].lightLevel;
+            $scope.LatestData.Temperature = data[lastInd].temperature;
+            $scope.LatestData.Pressure = data[lastInd].pressure;
+            $scope.LatestData.Humidity = data[lastInd].humidity;
+            
 
         })
         .error(function(data) {

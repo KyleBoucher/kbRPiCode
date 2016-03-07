@@ -1,4 +1,11 @@
 
+<div class="container">
+    <div>Time:          <span ng-bind="LatestData.Timestamp"></span></div>
+    <div>Light:         <span ng-bind="LatestData.LightLevel"></span></div>
+    <div>Temperature:   <span ng-bind="LatestData.Temperature"></span>&deg;C</div>
+    <div>Pressure:      <span ng-bind="LatestData.Pressure"></span> hPa</div>
+    <div>Humidity:      <span ng-bind="LatestData.Humidity">%</span></div>
+</div>
 
 <div class="container" style="width:100%;">
     <nvd3 options="LightSensor.Options" data="LightSensor.Data"></nvd3>
