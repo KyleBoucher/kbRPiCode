@@ -151,7 +151,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             console.log(dd);
             var chartData = {
                 labels: labs,
-                series: dd
+                series: [dd]
             };
 
             var chartOpts = {
