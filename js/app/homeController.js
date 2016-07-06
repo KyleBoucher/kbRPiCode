@@ -134,7 +134,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             //         y: data[i].lightLevel
             //     });
             // }
-            console.log(data);
+            // console.log(data);
             var lastInd = data.length-1;
             $scope.LatestData.Timestamp = new Date(data[lastInd].timeStamp);
             $scope.LatestData.LightLevel = data[lastInd].lightLevel.toFixed(3);
@@ -148,20 +148,25 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
                 labs.push(data[i].timeStamp);
                 dd.push(data[i].temperature);
             }
-
-            var chartOpts = {
+            console.log(dd);
+            var chartData = {
                 labels: labs,
                 series: dd
             };
 
-            var chartStyle = {
+            var chartOpts = {
                 fullWidth: true,
                 chartPadding: {
                     right: 40
-                }
+                },
+                high: 30,
+                low: -10,
+                referenceValue: 0,
+                height: '400px'
+
             };
 
-            new Chartist.Line('.ct-chart', chartOpts, chartStyle);
+            new Chartist.Line('.ct-chart', chartData, chartOpts);
 
         })
         .error(function(data) {
