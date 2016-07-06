@@ -5,3 +5,9 @@ table td, table th {
 table thead {
     background-color: lightgrey;
 }
+
+table tbody {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 200px;
+}
