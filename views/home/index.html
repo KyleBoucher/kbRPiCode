@@ -9,12 +9,12 @@
     </thead>
     <tbody>
         <tr ng-repeat="data in AllData | orderBy:'timeStamp'">
-            <td ng-bind="data.Timestamp | date:'yyyy-MM-dd'"></td>
-            <td ng-bind="data.Timestamp | date:'HH:mm:ss'"></td>
-            <td>{{data.LightLevel * 100.0}}%</td>
-            <td>{{data.Temperature}} &deg;C</td>
-            <td>{{data.Pressure}} hPa</td>
-            <td>{{data.Humidity}}%</td>
+            <td ng-bind="data.timeStamp | date:'yyyy-MM-dd'"></td>
+            <td ng-bind="data.timeStamp | date:'HH:mm:ss'"></td>
+            <td>{{data.lightLevel * 100.0 | number:3}}%</td>
+            <td>{{data.temperature | number:3}} &deg;C</td>
+            <td>{{data.pressure | number:3}} hPa</td>
+            <td>{{data.humidity | number:3}}%</td>
         </tr>
     </tbody>
 </table>
