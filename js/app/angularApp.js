@@ -1,4 +1,4 @@
-var mainModule = angular.module('mainModule', ['ngRoute', 'nvd3']);
+var mainModule = angular.module('mainModule', ['ngRoute']);
 
 mainModule.config(function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({
