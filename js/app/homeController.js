@@ -1,5 +1,6 @@
 
-mainModule.controller('homeController', function($scope, $http, $interval) {
+mainModule.controller('homeController', ['$scope', '$http', '$interval', '$filter',
+function($scope, $http, $interval, $filter) {
     
     $scope.LatestData = {
         Timestamp: 0,
@@ -144,10 +145,13 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             
             var dd = [];
             var labs = [];
-            for(var i = 0; i < data.length; ++i) {
-                labs.push(data[i].timeStamp);
+            for(var i = 0; i < data.length && i < 72; ++i) {
+                var d = new Date(data[lastInd].timeStamp);
+                var dFilt = $filter('date')(d, 'HH:mm');
+                labs.push(dFilt);
                 dd.push(data[i].temperature);
             }
+            console.log(labs);
             console.log(dd);
             var chartData = {
                 labels: labs,
@@ -175,5 +179,5 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
     };
     $scope.GetData();
 
-});
+}]);
 
