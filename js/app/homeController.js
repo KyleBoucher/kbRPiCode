@@ -115,6 +115,9 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
     $scope.GetData = function() {
         $http.get('/weather')
         .success(function(data) {
+            if(data == null || data.length == 0) {
+                return;
+            }
             //console.log(data);
             // $scope.LightSensor.Data = [{
             //     values:[],
