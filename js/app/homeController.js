@@ -112,7 +112,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
 //    
     $interval(function() {
         $scope.GetData();
-    }, 10000);
+    }, 600000);
     
     $scope.GetData = function() {
         $http.get('/weather')
@@ -142,6 +142,26 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             $scope.LatestData.Pressure = data[lastInd].pressure.toFixed(3);
             $scope.LatestData.Humidity = data[lastInd].humidity.toFixed(3);
             
+            var dd = [];
+            var labs = [];
+            for(var i = 0; i < data.length; ++i) {
+                labs.push(data[i].timeStamp);
+                dd.push(data[i].temperature);
+            }
+
+            var chartOpts = {
+                labels: labs,
+                series: data
+            };
+
+            var chartStyle = {
+                fullWidth: true,
+                chartPadding: {
+                    right: 40
+                }
+            };
+
+            new Chartist.Line('.ct-chart', chartOpts, chartStyle);
 
         })
         .error(function(data) {
