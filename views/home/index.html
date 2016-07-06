@@ -8,7 +8,7 @@
         <th>Humidity</th>
     </thead>
     <tbody>
-        <tr ng-repeat="data in AllData | orderBy:'timeStamp'">
+        <tr ng-repeat="data in AllData | orderBy:'timeStamp':true">
             <td ng-bind="data.timeStamp | date:'yyyy-MM-dd'"></td>
             <td ng-bind="data.timeStamp | date:'HH:mm:ss'"></td>
             <td>{{data.lightLevel * 100.0 | number:3}}%</td>
