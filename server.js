@@ -12,6 +12,7 @@ app.use('/views', express.static(path.join(__dirname, 'views')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/python', express.static(path.join(__dirname, 'python')));
+app.use('/content', express.static(path.join(__dirname, 'content')));
 
 app.use(morgan('dev'));
 app.use(bodyParser());

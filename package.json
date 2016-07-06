@@ -1,4 +1,5 @@
 {
+  "version": "1.0.0",
   "name": "weather-station",
   "main": "server.js",
   "dependencies": {

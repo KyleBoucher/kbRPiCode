@@ -127,7 +127,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             //         y: data[i].lightLevel
             //     });
             // }
-            
+            console.log(data);
             var lastInd = data.length-1;
             $scope.LatestData.Timestamp = new Date(data[lastInd].timeStamp);
             $scope.LatestData.LightLevel = data[lastInd].lightLevel.toFixed(3);
