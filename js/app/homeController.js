@@ -8,6 +8,8 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
         Pressure: 0,
         Humidity: 0
     };
+
+    $scope.AllData = [];
     
 //     $scope.LightSensor = {
 //         Options: {
@@ -118,6 +120,8 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
             if(data == null || data.length == 0) {
                 return;
             }
+
+            $scope.AllData = data;
             //console.log(data);
             // $scope.LightSensor.Data = [{
             //     values:[],

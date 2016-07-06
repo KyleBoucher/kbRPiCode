@@ -1,5 +1,6 @@
-<table>
+<table class="table table-striped table-bordered table-hover">
     <thead>
+        <th>Date</th>
         <th>Time</th>
         <th>Light</th>
         <th>Temperature</th>
@@ -7,12 +8,13 @@
         <th>Humidity</th>
     </thead>
     <tbody>
-        <tr>
-            <td ng-bind="LatestData.Timestamp | date:'yyyy-MM-dd HH:mm:ss'"></td>
-            <td>{{LatestData.LightLevel * 100.0}}%</td>
-            <td>{{LatestData.Temperature}} &deg;C</td>
-            <td>{{LatestData.Pressure}} hPa</td>
-            <td>{{LatestData.Humidity}}%</td>
+        <tr ng-repeat="data in AllData | orderBy:'timeStamp'">
+            <td ng-bind="data.Timestamp | date:'yyyy-MM-dd'"></td>
+            <td ng-bind="data.Timestamp | date:'HH:mm:ss'"></td>
+            <td>{{data.LightLevel * 100.0}}%</td>
+            <td>{{data.Temperature}} &deg;C</td>
+            <td>{{data.Pressure}} hPa</td>
+            <td>{{data.Humidity}}%</td>
         </tr>
     </tbody>
 </table>
