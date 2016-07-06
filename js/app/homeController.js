@@ -112,7 +112,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
 //    
     $interval(function() {
         $scope.GetData();
-    }, 600000);
+    }, 10000);
     
     $scope.GetData = function() {
         $http.get('/weather')
