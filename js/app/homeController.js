@@ -9,80 +9,80 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
         Humidity: 0
     };
     
-    $scope.LightSensor = {
-        Options: {
-            chart: {
-                type:'lineWithFocusChart',
-                height: 500,
-                margin: {
-                    top:20,
-                    right:40,
-                    bottom:60,
-                    left:40
-                },
-                interpolate: 'monotone',
-                x: function(d){return d.x;},
-                y: function(d) {return d.y;},
-                useInteractiveGuideline: true,
-                dispatch: {
-                    stateChange: function(e){ console.log("stateChange"); },
-                    changeState: function(e){ console.log("changeState"); },
-                    tooltipShow: function(e){ console.log("tooltipShow"); },
-                    tooltipHide: function(e){ console.log("tooltipHide"); }
-                },
-                xAxis: {
-                    axisLabel: "",
-                    ticks:12,
-                    tickFormat: function(d) {
-                        return d3.time.format('%H:%M')(new Date(d));
-                    },
-                    showMaxMin: true
-                },
-                x2Axis: {
-                    axisLabel: "",
-                    tickFormat: function(d) {
-                        return d3.time.format('%H:%M')(new Date(d));
-                    },
-                    showMaxMin: true
-                },
-                //xScale: d3.time.scale(),
-                //yScale: d3.scale.linear(),
-                //forceX: [moment().startOf('day').toDate(), moment().endOf('day').toDate()],
-                forceY: [0.0, 1.0],
-                yAxis: {
-                    axisLabel: "",
-                    ticks:10,
-                    showMaxMin: true
-                },
-                showLegend: false,
-//                zoom:{
-//                    enabled: true,
-//                    useNiceScale: true,
-//                    verticalOff: true,
-//                    horizontalOff: false,
-//                    scale: 1,
-//                    useFixedDomain: false,
-//                    scaleExtent: [1,1],
-//                    zoomed: function(xDomain, yDomain) {
-//                        console.log(xDomain);
-//                        var now = moment(new Date());
-//                        //var xd1 = $scope.LightSensor.Options.chart.xScale(now.hour(0).minute(xDomain[0]).toDate());
-//                        //var xd2 = $scope.LightSensor.Options.chart.xScale(now.hour(0).minute(24 + xDomain[1]).toDate());
-//                        return {x1:xd1,x2:xd2,y1:0, y2:1};
-//                    }
-//                },
-//                callback: function(chart){
-//                    console.log("!!! lineChart callback !!!");
-//                    console.log("yScale", chart.yScale());
-//                }
-            },
-            title: {
-                enable: true,
-                text: "Weather Data"
-            }
-        },
-        Data: []
-    };
+//     $scope.LightSensor = {
+//         Options: {
+//             chart: {
+//                 type:'lineWithFocusChart',
+//                 height: 500,
+//                 margin: {
+//                     top:20,
+//                     right:40,
+//                     bottom:60,
+//                     left:40
+//                 },
+//                 interpolate: 'monotone',
+//                 x: function(d){return d.x;},
+//                 y: function(d) {return d.y;},
+//                 useInteractiveGuideline: true,
+//                 dispatch: {
+//                     stateChange: function(e){ console.log("stateChange"); },
+//                     changeState: function(e){ console.log("changeState"); },
+//                     tooltipShow: function(e){ console.log("tooltipShow"); },
+//                     tooltipHide: function(e){ console.log("tooltipHide"); }
+//                 },
+//                 xAxis: {
+//                     axisLabel: "",
+//                     ticks:12,
+//                     tickFormat: function(d) {
+//                         return d3.time.format('%H:%M')(new Date(d));
+//                     },
+//                     showMaxMin: true
+//                 },
+//                 x2Axis: {
+//                     axisLabel: "",
+//                     tickFormat: function(d) {
+//                         return d3.time.format('%H:%M')(new Date(d));
+//                     },
+//                     showMaxMin: true
+//                 },
+//                 //xScale: d3.time.scale(),
+//                 //yScale: d3.scale.linear(),
+//                 //forceX: [moment().startOf('day').toDate(), moment().endOf('day').toDate()],
+//                 forceY: [0.0, 1.0],
+//                 yAxis: {
+//                     axisLabel: "",
+//                     ticks:10,
+//                     showMaxMin: true
+//                 },
+//                 showLegend: false,
+// //                zoom:{
+// //                    enabled: true,
+// //                    useNiceScale: true,
+// //                    verticalOff: true,
+// //                    horizontalOff: false,
+// //                    scale: 1,
+// //                    useFixedDomain: false,
+// //                    scaleExtent: [1,1],
+// //                    zoomed: function(xDomain, yDomain) {
+// //                        console.log(xDomain);
+// //                        var now = moment(new Date());
+// //                        //var xd1 = $scope.LightSensor.Options.chart.xScale(now.hour(0).minute(xDomain[0]).toDate());
+// //                        //var xd2 = $scope.LightSensor.Options.chart.xScale(now.hour(0).minute(24 + xDomain[1]).toDate());
+// //                        return {x1:xd1,x2:xd2,y1:0, y2:1};
+// //                    }
+// //                },
+// //                callback: function(chart){
+// //                    console.log("!!! lineChart callback !!!");
+// //                    console.log("yScale", chart.yScale());
+// //                }
+//             },
+//             title: {
+//                 enable: true,
+//                 text: "Weather Data"
+//             }
+//         },
+//         Data: []
+//     };
     
     //TODO: Fake data adding (random value 0-1) with faked timestamp 1min apart.
     //          - Get graph working then set python code to run on PI to test
@@ -138,7 +138,7 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
 
         })
         .error(function(data) {
-            console.log("Error Posting data", data);
+            console.log("Error Getting data", data);
         });
     };
     $scope.GetData();
