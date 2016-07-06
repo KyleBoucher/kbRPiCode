@@ -116,17 +116,17 @@ mainModule.controller('homeController', function($scope, $http, $interval) {
         $http.get('/weather')
         .success(function(data) {
             //console.log(data);
-            $scope.LightSensor.Data = [{
-                values:[],
-                key:'',
-                color:'#ff0000'
-            }];
-            for(var i = 0; i < data.length; ++i) {
-                $scope.LightSensor.Data[0].values.push({
-                    x: new Date(data[i].timeStamp),
-                    y: data[i].lightLevel
-                });
-            }
+            // $scope.LightSensor.Data = [{
+            //     values:[],
+            //     key:'',
+            //     color:'#ff0000'
+            // }];
+            // for(var i = 0; i < data.length; ++i) {
+            //     $scope.LightSensor.Data[0].values.push({
+            //         x: new Date(data[i].timeStamp),
+            //         y: data[i].lightLevel
+            //     });
+            // }
             
             var lastInd = data.length-1;
             $scope.LatestData.Timestamp = new Date(data[lastInd].timeStamp);
