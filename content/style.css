@@ -11,3 +11,7 @@ table tbody {
     overflow-x: hidden;
     height: 200px;
 }
+
+.ct-label {
+    font-size: 1rem;
+}

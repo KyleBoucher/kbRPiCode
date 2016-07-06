@@ -147,7 +147,7 @@ function($scope, $http, $interval, $filter) {
             var labs = [];
             for(var i = 0; i < data.length && i < 72; ++i) {
                 var d = new Date(data[lastInd].timeStamp);
-                var dFilt = $filter('date')(d, 'HH:mm');
+                var dFilt = $filter('date')(d, 'HH:mm:ss');
                 labs.push(dFilt);
                 dd.push(data[i].temperature);
             }
