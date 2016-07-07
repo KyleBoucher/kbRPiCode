@@ -151,8 +151,10 @@ function($scope, $http, $interval, $filter) {
                 labs.push(dFilt);
                 dd.push($scope.AllData[i].temperature);
             }
-            console.log(labs);
-            console.log(dd);
+            dd.reverse();
+            labs.reverse();
+            // console.log(labs);
+            // console.log(dd);
             var chartData = {
                 labels: labs,
                 series: [dd]
