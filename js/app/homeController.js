@@ -161,7 +161,7 @@ function($scope, $http, $interval, $filter) {
             };
 
             var chartOpts = {
-                fullWidth: true,
+                fullWidth: false,
                 chartPadding: {
                     right: 40
                 },
