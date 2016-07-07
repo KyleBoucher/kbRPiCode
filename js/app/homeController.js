@@ -122,7 +122,7 @@ function($scope, $http, $interval, $filter) {
                 return;
             }
 
-            $scope.AllData = $filter('orderBy')(data, 'timeStamp', true);
+            $scope.AllData = $filter('orderBy')(data, 'timeStamp');
             //console.log(data);
             // $scope.LightSensor.Data = [{
             //     values:[],
