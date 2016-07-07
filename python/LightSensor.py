@@ -3,6 +3,7 @@ from Adafruit_BME280 import *
 import datetime
 import RPi.GPIO as GPIO
 import time
+import os
 
 ############### MONGO 
 def GetMongoConnection():
@@ -60,6 +61,7 @@ while True:
     humidity_perc = bmeSensor.read_humidity();
     
     ## Output
+    os.system('clear')
     print '-----------------------------'
     print 'Timestamp    = {0}'.format(timestamp)
     print "Light Level  = {0:0.3f}".format(curLightLevel);
