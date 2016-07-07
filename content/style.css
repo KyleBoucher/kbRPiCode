@@ -16,7 +16,7 @@ table tbody {
     height: 200px;
 }
 
-ct-horizontal {
+.ct-label {
     font-size: 1.5rem;
     color: black;
 }
