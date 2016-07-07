@@ -122,7 +122,7 @@ function($scope, $http, $interval, $filter) {
                 return;
             }
 
-            $scope.AllData = $filter('orderBy')(data, 'timeStamp', true);
+            $scope.AllData = $filter('orderBy')(data, 'timeStamp');
             //console.log(data);
             // $scope.LightSensor.Data = [{
             //     values:[],
@@ -145,11 +145,11 @@ function($scope, $http, $interval, $filter) {
             
             var dd = [];
             var labs = [];
-            for(var i = 0; i < data.length && i < 72; ++i) {
-                var d = new Date(data[i].timeStamp);
+            for(var i = 0; i < $scope.AllData.length && i < 72; ++i) {
+                var d = new Date($scope.AllData[i].timeStamp);
                 var dFilt = $filter('date')(d, 'HH:mm:ss');
                 labs.push(dFilt);
-                dd.push(data[i].temperature);
+                dd.push($scope.AllData[i].temperature);
             }
             console.log(labs);
             console.log(dd);
