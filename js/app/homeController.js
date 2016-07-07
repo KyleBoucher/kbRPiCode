@@ -122,7 +122,7 @@ function($scope, $http, $interval, $filter) {
                 return;
             }
 
-            $scope.AllData = $filter('orderBy')(data, 'timeStamp');
+            $scope.AllData = $filter('orderBy')(data, 'timeStamp', true);
             //console.log(data);
             // $scope.LightSensor.Data = [{
             //     values:[],
@@ -166,8 +166,9 @@ function($scope, $http, $interval, $filter) {
                 high: 30,
                 low: -10,
                 referenceValue: 0,
-                height: '400px'
-
+                height: '400px',
+                scaleMinSpace: 20,
+                showPoint: false
             };
 
             new Chartist.Line('.ct-chart', chartData, chartOpts);

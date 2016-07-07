@@ -14,4 +14,5 @@ table tbody {
 
 .ct-label {
     font-size: 1rem;
+    transform: rotate(90);
 }
