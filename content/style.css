@@ -1,3 +1,7 @@
+body {
+    background-color: beige;
+}
+
 table td, table th {
     border: 1px solid grey;
 }
@@ -14,5 +18,9 @@ table tbody {
 
 .ct-label.ct-horizontal {
     font-size: 1.5rem;
+    color: black;
+}
+
+.ct-label.ct-horizontal {
     transform: rotate(60deg);
 }
