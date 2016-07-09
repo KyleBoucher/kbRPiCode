@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
         search = otherString + "|" + search;
     }
     
-    //console.log(search);
+    console.log(search);
     
     WeatherData.find({
         timeStamp: new RegExp("^(" + search + ")", "i")
