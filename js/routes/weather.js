@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     var history = 0;
     
     var date = moment.utc();
-    var todayString = date.format("YYYY-MM-DD");
+    var todayString = date.day(date.day()-i).format("YYYY-MM-DD");
     var search = todayString;
     for(var i = 1; i <= history; ++i) {
         var newDate = date.clone();
