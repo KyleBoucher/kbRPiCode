@@ -8,25 +8,28 @@ var WeatherData = require('../models/WeatherData.js');
 router.get('/', function(req, res, next) {
     
     //WeatherData.remove({}, function(err) {});
-    var history = 0;
+    // var history = 0;
     
-    var date = moment.utc();
-    var todayString = date.day(date.day()-i).format("YYYY-MM-DD");
-    var search = todayString;
-    for(var i = 1; i <= history; ++i) {
-        var newDate = date.clone();
-        var otherString = newDate.day(newDate.day()-i).format("YYYY-MM-DD");
-        search = otherString + "|" + search;
-    }
+    // var date = moment.utc();
+    // var todayString = date.day(date.day()-i).format("YYYY-MM-DD");
+    // var search = todayString;
+    // for(var i = 1; i <= history; ++i) {
+    //     var newDate = date.clone();
+    //     var otherString = newDate.day(newDate.day()-i).format("YYYY-MM-DD");
+    //     search = otherString + "|" + search;
+    // }
     
-    console.log(search);
+    // console.log(search);
     
-    WeatherData.find({
-        timeStamp: new RegExp("^(" + search + ")", "i")
-    })
+    // WeatherData.find({
+    //     timeStamp: new RegExp("^(" + search + ")", "i")
+    // })
 //    .$where(function() {
 //        return false;
 //    })
+    WeatherData.find({})
+    .limit(72)
+    .sort({timeStamp:-1})
     .exec(function(err, wData) {
         if(err) {return next(err);}
         res.json(wData);
