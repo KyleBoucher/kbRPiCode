@@ -8,7 +8,7 @@ var WeatherData = require('../models/WeatherData.js');
 router.get('/', function(req, res, next) {
     
     //WeatherData.remove({}, function(err) {});
-    var history = 7;
+    var history = 1;
     
     var date = moment.utc();
     var todayString = date.format("YYYY-MM-DD");
