@@ -9,8 +9,8 @@ import os
 def GetMongoConnection():
     con = None;
     try:
-        con = MongoClient('mongodb://RPi:dragonpi@192.168.20.111:27017');
-        #con = MongoClient('mongodb://RPi:dragonpi@localhost:27017');
+        con = MongoClient('mongodb://RPi:dragonpi@192.168.0.122:27017');
+        # con = MongoClient('mongodb://RPi:dragonpi@localhost:27017');
         #con = MongoClient('mongodb://RPi:dragonpi@localhost')
     except (AttributeError, pymongo.errors.OperationFailure):
         print "Could not connect to server: %s" % AttributeError

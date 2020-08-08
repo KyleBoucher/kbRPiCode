@@ -21,7 +21,7 @@ app.use(methodOverride());
 
 // Database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://192.168.20.111:27017/weather', function(err) {
+mongoose.connect('mongodb://192.168.0.122:27017/weather', function(err) {
     if(err) { console.log('mongodb connect error', err); }
     else { console.log('mongodb connect success'); }
 });
